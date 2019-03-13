@@ -55,9 +55,11 @@ public class AlienController {
     		if(s.length==2) {
     			ad.addWord(s[0], s[1]);
     		}
-    		for(Word w : ad.dizionario) {
+    		for(WordEnhanced w : ad.dizionarioM) {
     			if(w.getAlienWord().compareTo(parola)==0) {
-    				txtResult.appendText(w.getTranslation()+"\n");
+    				for(int i=0; i<w.traduzioni.size(); i++){
+    					txtResult.appendText(w.traduzioni+"\n");
+    				}
     				txtWord.clear();
     				return;
     			}
@@ -67,7 +69,7 @@ public class AlienController {
     		txtWord.clear();
     	}
     }
-
+    //ciao
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert txtWord != null : "fx:id=\"txtWord\" was not injected: check your FXML file 'Alien.fxml'.";
